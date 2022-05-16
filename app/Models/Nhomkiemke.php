@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Nhomkiemke extends Model
 {
-
     use HasFactory;
+    protected $table = 'nhomkiemke';
+
     protected $fillable = [
-        'tennhom'
+        'tennhomkiemke'
     ];
 }

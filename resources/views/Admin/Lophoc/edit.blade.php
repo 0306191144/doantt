@@ -11,23 +11,23 @@
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    @include('partals.content_header',['name'=>'Phòng Máy', 'key'=>'sửa'])
+    @include('partals.content_header',['name'=>'Lớp ', 'key'=>'sửa'])
     <!-- /.content-header -->
 
     <div class="content">
       <div class="container-fluid">
         <div class="row">
          <div class="col-6">
-   <form action="{{route('Phongmay.update',['id'=>$phongmay->id])}}" method="Post" enctype="multipart/form-data">
+   <form action="{{route('Lophoc.update',['id'=>$lophoc->id])}}" method="Post" enctype="multipart/form-data">
     @csrf
           <div class="form-group">
-             <label >Tên phòng máy</label>
-              <input type="text" class="form-control @error('tenphongmay') is-invalid @enderror" 
-              value="{{$phongmay->tenphongmay}}"
-               name ='tenphongmay'
-               placeholder=" nhập tên phòng máy">
+             <label >Tên Lớp </label>
+              <input type="text" class="form-control @error('tenlophoc') is-invalid @enderror" 
+              value="{{$lophoc->ten_lophoc}}"
+               name ='tenlophoc'
+               placeholder=" nhập tên Lớp ">
           </div>
-         @error('tenphongmay')
+         @error('ten_lophoc')
             <div class=" alert alert-danger">{{$message}}</div>
           @enderror
           

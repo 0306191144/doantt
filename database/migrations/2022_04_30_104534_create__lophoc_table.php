@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('lophoc', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenlophoc')->nullable();
+            $table->string('tenlophoc')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

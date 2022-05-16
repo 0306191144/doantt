@@ -11,23 +11,23 @@
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    @include('partals.content_header',['name'=>'Phòng Máy', 'key'=>'sửa'])
+    @include('partals.content_header',['name'=>'Nhóm kiểm kê', 'key'=>'ADD'])
     <!-- /.content-header -->
 
+    <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
         <div class="row">
          <div class="col-6">
-   <form action="{{route('Phongmay.update',['id'=>$phongmay->id])}}" method="Post" enctype="multipart/form-data">
+   <form action="{{route('Nhomkiemke.store')}}" method="Post" enctype="multipart/form-data">
     @csrf
           <div class="form-group">
-             <label >Tên phòng máy</label>
-              <input type="text" class="form-control @error('tenphongmay') is-invalid @enderror" 
-              value="{{$phongmay->tenphongmay}}"
-               name ='tenphongmay'
-               placeholder=" nhập tên phòng máy">
+             <label >Tên tên Nhóm kiểm kê</label>
+              <input type="text" class="form-control @error('tennhomkiemke') is-invalid @enderror" value="{{old('tennhomkiemke')}}"
+               name ='tennhomkiemke'
+               placeholder=" nhập tên nhóm">
           </div>
-         @error('tenphongmay')
+         @error('tennhomkiemke')
             <div class=" alert alert-danger">{{$message}}</div>
           @enderror
           
@@ -43,8 +43,10 @@
  </div>
   <!-- /.content-wrapper -->
   <script src="{{ asset('/assets/dist/js/previewImage.js')}}"></script>
-
   <script>
- 
-      </script>
+    previewImage("avatar","preview-avatar");
+    previewImage("images","preview-images");
+  </script>
+
+
 @endsection

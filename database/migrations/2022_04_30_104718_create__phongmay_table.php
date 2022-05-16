@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('phongmay', function (Blueprint $table) {
             $table->id();
-            $table->string('ten_phongmay')->nullable();
+            $table->string('tenphongmay')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

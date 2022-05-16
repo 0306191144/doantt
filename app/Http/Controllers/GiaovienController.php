@@ -58,7 +58,7 @@ class GiaovienController extends Controller
     }
     public function delete($id)
     {
-        $this->user->find($id)->delete();
-        return redirect(route('user.index'));
+        $this->giaovien->find($id)->delete();
+        return redirect(route('Giaovien.index'));
     }
 }

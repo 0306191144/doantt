@@ -20,7 +20,7 @@
           <img src="{{$userauth->avatar_path}}" style="object-fit: cover; width:30px;height:30px" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="{{route('Admin.Home')}}" class="d-block">{{$userauth->name}}</a>
+          <a href="{{route('Admin.Home')}}" class="d-block">{{$userauth->ten_user}}</a>
         </div>
       </div>
       @else
@@ -28,7 +28,7 @@
         <img src="" style="object-fit: cover; width:30px;height:30px" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="{{route('Admin.Home')}}" class="d-block">tran duc minh/a>
+        <a href="{{route('Admin.Home')}}" class="d-block">{{$userauth->ten_user}}</a>
       </div>
     </div>
       @endif
@@ -78,18 +78,36 @@
             </a>
           </li>
            <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('Lophoc.index')}}" class="nav-link">
                   <i class="nav-icon fas fa-user"></i>
               <p>
                 Lớp Học
               </p>
             </a>
           </li> 
+
+          <li class="nav-item">
+            <a href="{{route('Nhomkiemke.index')}}" class="nav-link">
+                  <i class="nav-icon fas fa-user"></i>
+              <p>
+               Nhóm
+              </p>
+            </a>
+          </li> 
+
           <li class="nav-item">
             <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-user"></i>
               <p>
                Lỗi
+              </p>
+            </a>
+          </li> 
+          <li class="nav-item">
+            <a href="{{route('Phongmay.index')}}" class="nav-link">
+                  <i class="nav-icon fas fa-user"></i>
+              <p>
+               Phòng máy
               </p>
             </a>
           </li> 

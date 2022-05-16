@@ -19,15 +19,15 @@
       <div class="container-fluid">
         <div class="row">
          <div class="col-6">
-   <form action="{{route('Giaovien.store')}}" method="Post" enctype="multipart/form-data">
+   <form action="{{route('Phongmay.store')}}" method="Post" enctype="multipart/form-data">
     @csrf
           <div class="form-group">
              <label >Tên tên phòng máy</label>
-              <input type="text" class="form-control @error('ten_phongmay') is-invalid @enderror" value="{{old('tenphongmay')}}"
-               name ='ten_phongmay'
+              <input type="text" class="form-control @error('tenphongmay') is-invalid @enderror" value="{{old('tenphongmay')}}"
+               name ='tenphongmay'
                placeholder=" nhập tên phòngng máy">
           </div>
-         @error('ten_phongmay')
+         @error('tenphongmay')
             <div class=" alert alert-danger">{{$message}}</div>
           @enderror
           

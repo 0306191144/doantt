@@ -10,7 +10,7 @@
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
     <!-- Content Header (Page header) -->   
-    @include('partals.content_header',['name'=>'User', 'key'=>'List'])
+    @include('partals.content_header',['name'=>'Phòng máy', 'key'=>'List'])
 
     <!-- /.content-header -->
 
@@ -19,7 +19,7 @@
       <div class="container-fluid">
        <div class="row">
           <div class="col-md-12">
-            <a href="{{route('Giaovien.create')}}" class="btn btn-success float-right m-2"> Add</a>
+            <a href="{{route('Phongmay.create')}}" class="btn btn-success float-right m-2"> Add</a>
           </div>
       <div class="col-md-12">
             <table class="table">
@@ -31,13 +31,13 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($giaoviens as $giaovien)
+            @foreach ($phongmays as $phongmay)
             <tr>
-              <th scope="row">{{$giaovien->id}}</th>
-              <td>  {{$giaovien->ten_giaovien}} </td>
+              <th scope="row">{{$phongmay->id}}</th>
+              <td>  {{$phongmay->tenphongmay}} </td>
               <td>
-              <a href="{{route('Giaovien.edit',['id'=>$giaovien->id])}}" class="btn btn-default">edit</a>
-              <button onclick="handleDelete({{$giaovien->id}},'Giaovien','delete')" class="btn btn-danger delete-btn">delete</button>
+              <a href="{{route('Phongmay.edit',['id'=>$phongmay->id])}}" class="btn btn-default">edit</a>
+              <button onclick="handleDelete({{$phongmay->id}},'phongmay','delete')" class="btn btn-danger delete-btn">delete</button>
             </td>
             </tr>
             <tr>
@@ -50,7 +50,7 @@
       </div>
  
         
-      {{$giaoviens ->links('pagination::bootstrap-4') }}
+      {{$phongmays ->links('pagination::bootstrap-4') }}
      
         <!-- /.row -->
       </div><!-- /.container-fluid -->
