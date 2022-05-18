@@ -63,6 +63,13 @@
       @enderror
         
 
+      <div class="form-group" >
+        <label >Nhóm</label>
+      <select class="form-control" name='manhom'>
+        {!! $htmlOption !!}
+      </select>
+      </div>
+
         <div class="form-group" >
           <label >Giới Tính</label>
         <select class="form-control" name='gioitinh'>

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('dientaloi')->nullable();
             $table->boolean('trang_thai')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

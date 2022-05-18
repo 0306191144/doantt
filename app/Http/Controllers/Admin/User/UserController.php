@@ -7,14 +7,17 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Traits\StorageImage;;
 
+use App\component\Recute;
+use App\Models\Nhomkiemke;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     use   StorageImage;
-    public function __construct(User $user)
+    public function __construct(User $user, Nhomkiemke $nhomkiemke)
     {
         $this->user = $user;
+        $this->nhomkiemke = $nhomkiemke;
     }
     public function index()
     {
@@ -24,10 +27,20 @@ class UserController extends Controller
             'title' => 'add product'
         ]));
     }
-    public function create()
+    public function getnhom($parent_id)
     {
-        return (view('Admin.users.create', [
-            'title' => 'add user'
+        $data = $this->nhomkiemke->all();
+        $recusive = new Recute($data);
+        $htmlOption = $recusive->returnselecte($parent_id);
+        return $htmlOption;
+    }
+
+    public function create($parent_id = '')
+    {
+        $htmlOption = $this->getnhom($parent_id);
+
+        return (view('Admin.users.create', compact('htmlOption'), [
+            'title' => 'add user',
         ]));
     }
     public function store(Request $request)
@@ -46,7 +59,8 @@ class UserController extends Controller
             'password' => $request->password,
             'gioitinh' => $request->gioitinh,
             'email' => $request->email,
-            'isadmin' => $request->true
+            'isadmin' => $request->true,
+            'manhom' => $request->manhom
         ];
         if ($request->isadmin) {
             $dataupdates['isadmin'] = true;
@@ -61,10 +75,12 @@ class UserController extends Controller
 
         return redirect()->route('user.index');
     }
-    public function edit($id)
+    public function edit($id, $parent_id = '')
     {
+        $htmlOption = $this->getnhom($parent_id);
+
         $user = $this->user->find($id);
-        return (view('Admin.users.edit', compact('user'), [
+        return (view('Admin.users.edit', compact('user', 'htmlOption'), [
             'title' => 'add user'
         ]));
     }
@@ -78,7 +94,9 @@ class UserController extends Controller
             'diachi' => $request->adress,
             'gioitinh' => $request->gioitinh,
             'email' => $request->email,
-            'isadmin' => $request->isadmin
+            'isadmin' => $request->isadmin,
+            'manhom' => $request->manhom
+
         ];
         if ($request->isadmin == 'true') {
             $dataupdate['isadmin'] = true;

@@ -113,7 +113,7 @@
           </li> 
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('Cahoc.index')}}" class="nav-link">
                   <i class="nav-icon fas fa-user"></i>
               <p>
                Ca Học

@@ -34,6 +34,7 @@
               <th scope="col">giới tính</th>
               <th scope="col">số điện thoại </th>
               <th scope="col">Địa chỉ</th>
+              <th scope="col">Nhóm</th>
               <th scope="col">Admin</th>
               <th scope="col">chức năng</th>
             </tr>
@@ -48,6 +49,8 @@
               <td>  {{$user->gioitinh}} </td>
               <td>  {{$user->sodienthoai}}  </td>
               <td>  {{$user->diachi}}   </td>
+              <td> {{ optional($user->nhom)->tennhomkiemke}}   </td>
+
             @if($user->isadmin==true) {<td> Admin</td>}
             @else  {<td>Thành Viên</td>}
             @endif

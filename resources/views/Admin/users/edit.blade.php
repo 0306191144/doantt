@@ -98,6 +98,13 @@
                </div>
             </div>
      
+            <div class="form-group" >
+              <label >Nhóm</label>
+            <select class="form-control" name='manhom'>
+              {!! $htmlOption !!}
+            </select>
+            </div>
+
          <div class="row">
            <div class="col-8">
                <input type="checkbox" name='isadmin' id="isadmin" value="true">

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('cahoc', function (Blueprint $table) {
             $table->id();
+            $table->string('tencahoc');
             $table->integer('ma_giaovien')->nullable();
             $table->integer('ma_lophoc')->nullable();
             $table->integer('ma_phongmay')->nullable();

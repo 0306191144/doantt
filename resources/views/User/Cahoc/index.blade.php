@@ -10,7 +10,7 @@
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
     <!-- Content Header (Page header) -->   
-    @include('partals.content_header',['name'=>'Lớp học', 'key'=>'List'])
+    @include('partals.content_header',['name'=>'User', 'key'=>'List'])
 
     <!-- /.content-header -->
 
@@ -19,7 +19,7 @@
       <div class="container-fluid">
        <div class="row">
           <div class="col-md-12">
-            <a href="{{route('Lophoc.create')}}" class="btn btn-success float-right m-2"> Add</a>
+            <a href="{{route('Cahoc.create')}}" class="btn btn-success float-right m-2"> Add</a>
           </div>
       <div class="col-md-12">
             <table class="table">
@@ -27,16 +27,17 @@
             <tr>
               <th scope="col">Id</th>
               <th scope="col">Name</th>
+       
             </tr>
           </thead>
           <tbody>
-            @foreach ($lophocs as $lophoc)
+            @foreach ($cahocs as $cahoc)
             <tr>
-              <th scope="row">{{$lophoc->id}}</th>
-              <td>  {{$lophoc->tenlophoc}} </td>
+              <th scope="row">{{$cahoc->id}}</th>
+              <td>  {{$cahoc->ten_cahoc}} </td>
               <td>
-              <a href="{{route('Lophoc.edit',['id'=>$lophoc->id])}}" class="btn btn-default">edit</a>
-              <button onclick="handleDelete({{$lophoc->id}},'lophoc','delete')" class="btn btn-danger delete-btn">delete</button>
+              <a href="{{route('cahoc.edit',['id'=>$cahoc->id])}}" class="btn btn-default">edit</a>
+              <button onclick="handleDelete({{$cahoc->id}},'cahoc','delete')" class="btn btn-danger delete-btn">delete</button>
             </td>
             </tr>
             <tr>
@@ -49,7 +50,7 @@
       </div>
  
         
-      {{$lophocs ->links('pagination::bootstrap-4') }}
+      {{$cahocs ->links('pagination::bootstrap-4') }}
      
         <!-- /.row -->
       </div><!-- /.container-fluid -->
