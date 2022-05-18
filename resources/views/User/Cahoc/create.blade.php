@@ -23,35 +23,41 @@
     @csrf
 
     <div class="form-group" >
-      <label >tên ca học</label>
-    <select class="form-control" name='tencahoc'>
-      <option value="ca1">Ca1</option>
-      <option value="ca2">ca2</option>
-      <option value="ca3">ca3</option>
-      <option value="ca4">Ca4</option>
-    </select>
-    </div>
-
-
-    <div class="form-group" >
-        <label >Giáo viên</label>
-      <select class="form-control" name='manhom'>
-        {!! $htmlOption !!}
+        <label >tên ca học</label>
+      <select class="form-control" name='tencahoc'>
+        <option value='ca1'>ca1</option>
+        <option value='ca2'>ca2</option>
+        <option value='ca3'>ca3</option>
+        <option value='ca4'>ca4</option>
       </select>
     </div>
 
 
     <div class="form-group" >
-      <label >Lophoc</label>
-    <select class="form-control" name='lophoc'>
-      {!! $htmlOption !!}
+        <label >Giáo viên</label>
+      <select class="form-control" name='ma_giaovien'>
+        @foreach ($selectgiaovien as $value)
+        <option value ={{$value['id']}} > {{$value['ten_giaovien'] }}</option>
+        @endforeach
+      </select>
+    </div>
+
+
+    <div class="form-group" >
+      <label > phòng máy</label>
+    <select class="form-control" name='ma_phongmay'>
+      @foreach ($selectphongmay as $value)
+        <option value ={{$value['id']}} > {{$value['tenphongmay'] }}</option>
+        @endforeach
     </select>
   </div>
 
   <div class="form-group" >
-    <label >Phòng hoc</label>
-  <select class="form-control" name='lophoc'>
-    {!! $htmlOption !!}
+    <label >Lớp học</label>
+  <select class="form-control" name='ma_lophoc'>
+    @foreach ($selectlophoc as $value)
+    <option value ={{$value['id']}} > {{$value['tenlophoc'] }}</option>
+    @endforeach
   </select>
   </div>
    

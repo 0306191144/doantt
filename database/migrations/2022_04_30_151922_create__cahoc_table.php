@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('cahoc', function (Blueprint $table) {
             $table->id();
-            $table->string('tencahoc');
+            $table->string('tencahoc')->nullable();
             $table->integer('ma_giaovien')->nullable();
             $table->integer('ma_lophoc')->nullable();
             $table->integer('ma_phongmay')->nullable();
             $table->integer('ma_userkiemtra')->nullable();
+            $table->string('ghi_chu')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

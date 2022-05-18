@@ -26,17 +26,24 @@
           <thead>
             <tr>
               <th scope="col">Id</th>
-              <th scope="col">Name</th>
-       
+              <th scope="col">Tên</th>
+              <th scope="col">Tên giáo viên</th>
+              <th scope="col">Tên lớp học</th>
+              <th scope="col">Tên phòng máy</th>
+              <th scope="col">Tên nhóm trực </th>
             </tr>
           </thead>
           <tbody>
             @foreach ($cahocs as $cahoc)
             <tr>
+            
               <th scope="row">{{$cahoc->id}}</th>
-              <td>  {{$cahoc->ten_cahoc}} </td>
-              <td>
-              <a href="{{route('cahoc.edit',['id'=>$cahoc->id])}}" class="btn btn-default">edit</a>
+              <td>{{ $cahoc->tencahoc}}</td>
+               <td>  {{$cahoc->giaovien->ten_giaovien}} </td>
+              <td>  {{optional($cahoc->Lophocv)->tenlophoc}} </td>
+               <td>  {{optional($cahoc->maphongmaytinh)->tenphongmay}} </td>  
+              <td>  {{optional($cahoc->user)->nhom->tennhomkiemke}} </td>
+             <td> <a href="{{route('Cahoc.edit',['id'=>$cahoc->id])}}" class="btn btn-default">edit</a>
               <button onclick="handleDelete({{$cahoc->id}},'cahoc','delete')" class="btn btn-danger delete-btn">delete</button>
             </td>
             </tr>

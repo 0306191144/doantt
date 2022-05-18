@@ -15,4 +15,8 @@ class Lophoc extends Model
         'id',
         'tenlophoc'
     ];
+    public function cahoc()
+    {
+        return $this->hasMany(Cahoc::class, 'id');
+    }
 }

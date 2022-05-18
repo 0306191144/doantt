@@ -16,4 +16,8 @@ class Phongmay extends Model
         'id',
         'tenphongmay'
     ];
+    public function cahoc()
+    {
+        return  $this->hasMany(Cahoc::class, 'id');
+    }
 }

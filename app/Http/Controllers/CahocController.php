@@ -6,7 +6,10 @@ use App\Models\Cahoc;
 use Illuminate\Http\Request;
 
 use App\component\Recute;
-
+use App\Models\Giaovien;
+use App\Models\Lophoc;
+use App\Models\Phongmay;
+use Illuminate\Support\Facades\Auth;
 
 class CahocController extends Controller
 {
@@ -15,53 +18,58 @@ class CahocController extends Controller
     // 'ma_lophoc',
     // 'ma_phongmay',
     // 'ma_userkiemtra'
-    public function __construct(Cahoc $cahoc)
-    {
+    public function __construct(
+        Cahoc $cahoc,
+        Giaovien $giaovien,
+        Lophoc $lophoc,
+        Phongmay $phongmay
+    ) {
         $this->cahoc = $cahoc;
+        $this->giaovien = $giaovien;
+        $this->lophoc = $lophoc;
+        $this->phongmay = $phongmay;
     }
     function index()
     {
         $cahocs  = $this->cahoc->latest()->paginate(5);
         return view("User.cahoc.Index", compact('cahocs'));
     }
-    public function getnhom($parent_id)
-    {
-        $data = $this->nhomkiemke->all();
-        $recusive = new Recute($data);
-        $htmlOption = $recusive->returnselecte($parent_id);
-        return $htmlOption;
-    }
+
     public function create()
     {
-        return (view('User.Cahoc.create', [
+        $selectgiaovien = $this->giaovien::all();
+        $selectlophoc = $this->lophoc::all();
+        $selectphongmay = $this->phongmay::all();
+        return (view('User.Cahoc.create', compact('selectgiaovien', 'selectphongmay', 'selectlophoc'), [
             'title' => 'Thêm thêm ca hoc'
         ]));
     }
     public function store(Request $request)
     {
-
-        $request->validate([
-            'Ten_cahoc' => 'required',
-        ]);
-        $dataupdates = [
-            'ten_cahoc' => $request->Ten_cahoc,
+        $datacreate = [
+            'ma_phongmay' => $request->ma_phongmay,
+            'ma_lophoc' => $request->ma_lophoc,
+            'ma_giaovien' => $request->ma_giaovien,
+            'ma_userkiemtra' => Auth::id(),
+            'tencahoc' => $request->tencahoc
         ];
-        $this->cahoc->create($dataupdates);
-        return redirect()->route('cahoc.index');
+        $this->cahoc->create($datacreate);
+        return redirect()->route('Cahoc.index');
     }
     public function edit($id)
     {
         $cahoc = $this->cahoc->find($id);
-        return (view('Admin.cahoc.edit', compact('cahoc'), [
-            'title' => 'add user'
-        ]));
+        $selectgiaovien = $this->giaovien::all();
+        $selectlophoc = $this->lophoc::all();
+        $selectphongmay = $this->phongmay::all();
+        return (view('User.Cahoc.edit', compact('selectgiaovien', 'selectphongmay', 'selectlophoc', 'cahoc')));
     }
 
     public function update($id, Request $request)
     {
 
         $request->validate([
-            'Ten_cahoc' => 'required',
+            'tencahoc' => 'required',
         ]);
         $dataupdates = [
             'ten_cahoc' => $request->Ten_cahoc,
@@ -72,6 +80,6 @@ class CahocController extends Controller
     public function delete($id)
     {
         $this->cahoc->find($id)->delete();
-        return redirect(route('cahoc.index'));
+        return redirect(route('Cahoc.index'));
     }
 }

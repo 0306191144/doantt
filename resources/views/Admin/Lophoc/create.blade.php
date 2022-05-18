@@ -25,7 +25,7 @@
              <label >Tên tên lớp học</label>
               <input type="text" class="form-control @error('tenlophoc') is-invalid @enderror" value="{{old('tenlophoc')}}"
                name ='tenlophoc'
-               placeholder=" nhập tên phòngng máy">
+               placeholder=" nhập tên lớp học">
           </div>
          @error('tenlophoc')
             <div class=" alert alert-danger">{{$message}}</div>
@@ -34,7 +34,7 @@
        <button type="submit" class="btn btn-primary">Submit</button>
        
     </form>
-    </div>
+    </div>  
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>

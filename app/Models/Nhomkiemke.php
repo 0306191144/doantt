@@ -18,6 +18,6 @@ class Nhomkiemke extends Model
     ];
     public function user()
     {
-        $this->hasMany(User::class, 'id');
+        return $this->hasMany(User::class, 'id');
     }
 }

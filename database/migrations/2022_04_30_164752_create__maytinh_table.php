@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('ram')->nullable();
             $table->string('cpu')->nullable();
             $table->string('screen')->nullable();
-            $table->integer('ma_phong')->nullable();
+            $table->integer('ma_phongmay')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

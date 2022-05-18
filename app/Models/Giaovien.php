@@ -15,4 +15,8 @@ class Giaovien extends Model
         'id',
         'ten_giaovien',
     ];
+    public function cahoc()
+    {
+        return $this->hasMany(Cahoc::class, 'id');
+    }
 }

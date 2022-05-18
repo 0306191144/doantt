@@ -25,7 +25,7 @@
              <label >Tên tên phòng máy</label>
               <input type="text" class="form-control @error('tenphongmay') is-invalid @enderror" value="{{old('tenphongmay')}}"
                name ='tenphongmay'
-               placeholder=" nhập tên phòngng máy">
+               placeholder=" nhập tên phòng máy">
           </div>
          @error('tenphongmay')
             <div class=" alert alert-danger">{{$message}}</div>
