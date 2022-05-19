@@ -32,7 +32,7 @@
       </select>
     </div>
 
-
+    
     <div class="form-group" >
         <label >Giáo viên</label>
       <select class="form-control" name='ma_giaovien'>
@@ -61,6 +61,18 @@
   </select>
   </div>
    
+  <div class="form-group" >
+    <label >Ngày học</label>
+    <input type="date" name='ngayhoc' class="form-control" >
+</div>
+@error('ngayhoc')
+<div class=" alert alert-danger">{{$message}}</div>
+@enderror
+
+<div class="form-group" >
+  <label >ghi chú</label>
+  <input type="text" name='ghichu' class="form-control" >
+</div>
        <button type="submit" class="btn btn-primary">Submit</button>
        
     </form>

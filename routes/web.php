@@ -8,6 +8,8 @@ use App\Http\Controllers\PhongmayController;
 use App\Http\Controllers\LophocController;
 use App\Http\Controllers\NhomkiemkeController;
 use App\Http\Controllers\CahocController;
+use App\Http\Controllers\MaytinhController;
+
 
 
 
@@ -88,5 +90,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [CahocController::class, 'edit'])->name('Cahoc.edit');
         Route::post('/update/{id}', [CahocController::class, 'update'])->name('Cahoc.update');
         Route::get('/delete/{id}', [CahocController::class, 'delete'])->name('Cahoc.delete');
+    });
+    Route::prefix('maytinh')->group(function () {
+        Route::get('/create', [MaytinhController::class, 'create'])->name('Maytinh.create');
+        Route::post('/store', [MaytinhController::class, 'store'])->name('Maytinh.store');
+        Route::get('/index', [MaytinhController::class, 'index'])->name('Maytinh.index');
+        Route::get('/edit/{id}', [MaytinhController::class, 'edit'])->name('Maytinh.edit');
+        Route::post('/update/{id}', [MaytinhController::class, 'update'])->name('Maytinh.update');
+        Route::get('/delete/{id}', [MaytinhController::class, 'delete'])->name('Maytinh.delete');
     });
 });

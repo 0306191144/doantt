@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Maytinh extends Model
 {
     use HasFactory;
+    protected $table = 'maytinh';
 
     protected $fillable = [
         'id',
@@ -16,7 +17,11 @@ class Maytinh extends Model
         'mota',
         'ram',
         'cpu',
-        'screen',
-        'ma_phong'
+        'ocung',
+        'ma_phongmay'
     ];
+    public function phongmay()
+    {
+        return $this->belongsTo(Phongmay::class, foreignKey: 'ma_phongmay');
+    }
 }

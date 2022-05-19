@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('ma_phongmay')->nullable();
             $table->integer('ma_userkiemtra')->nullable();
             $table->string('ghi_chu')->nullable();
+            $table->date('ngayhoc')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -9,6 +9,8 @@ use App\component\Recute;
 use App\Models\Giaovien;
 use App\Models\Lophoc;
 use App\Models\Phongmay;
+use Carbon\Carbon;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Auth;
 
 class CahocController extends Controller
@@ -44,14 +46,21 @@ class CahocController extends Controller
             'title' => 'Thêm thêm ca hoc'
         ]));
     }
+
     public function store(Request $request)
     {
+
+        $request->validate([
+            'ngayhoc' => 'before:tomorrow'
+        ]);
         $datacreate = [
             'ma_phongmay' => $request->ma_phongmay,
             'ma_lophoc' => $request->ma_lophoc,
             'ma_giaovien' => $request->ma_giaovien,
             'ma_userkiemtra' => Auth::id(),
-            'tencahoc' => $request->tencahoc
+            'tencahoc' => $request->tencahoc,
+            'ngayhoc' => $request->ngayhoc,
+            'ghi_chu' => $request->ghichu
         ];
         $this->cahoc->create($datacreate);
         return redirect()->route('Cahoc.index');
@@ -69,13 +78,19 @@ class CahocController extends Controller
     {
 
         $request->validate([
-            'tencahoc' => 'required',
+            'ngayhoc' => 'before:tomorrow'
         ]);
         $dataupdates = [
-            'ten_cahoc' => $request->Ten_cahoc,
+            'ma_phongmay' => $request->ma_phongmay,
+            'ma_lophoc' => $request->ma_lophoc,
+            'ma_giaovien' => $request->ma_giaovien,
+            'ma_userkiemtra' => Auth::id(),
+            'tencahoc' => $request->tencahoc,
+            'ngayhoc' => $request->ngayhoc,
+            'ghi_chu' => $request->ghichu
         ];
         $this->cahoc->find($id)->update($dataupdates);
-        return redirect()->route('cahoc.index');
+        return redirect()->route('Cahoc.index');
     }
     public function delete($id)
     {

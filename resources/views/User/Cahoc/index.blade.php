@@ -31,6 +31,9 @@
               <th scope="col">Tên lớp học</th>
               <th scope="col">Tên phòng máy</th>
               <th scope="col">Tên nhóm trực </th>
+              <th scope="col">Ngày học</th>
+              <th scope="col">Ghi chú</th>
+
             </tr>
           </thead>
           <tbody>
@@ -43,6 +46,8 @@
               <td>  {{optional($cahoc->Lophocv)->tenlophoc}} </td>
                <td>  {{optional($cahoc->maphongmaytinh)->tenphongmay}} </td>  
               <td>  {{optional($cahoc->user)->nhom->tennhomkiemke}} </td>
+              <td>  {{$cahoc->ngayhoc}} </td>
+              <td>  {{$cahoc->ghi_chu}} </td>
              <td> <a href="{{route('Cahoc.edit',['id'=>$cahoc->id])}}" class="btn btn-default">edit</a>
               <button onclick="handleDelete({{$cahoc->id}},'cahoc','delete')" class="btn btn-danger delete-btn">delete</button>
             </td>

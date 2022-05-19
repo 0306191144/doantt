@@ -18,7 +18,13 @@ class Cahoc extends Model
         'ma_giaovien',
         'ma_lophoc',
         'ma_phongmay',
-        'ma_userkiemtra'
+        'ma_userkiemtra',
+        'ngayhoc',
+        'ghi_chu'
+    ];
+    protected $casts = [
+        'ngayhoc' => 'datetime:d/m/Y',
+
     ];
     public function giaovien()
     {
