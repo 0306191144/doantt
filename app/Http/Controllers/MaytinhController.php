@@ -53,26 +53,24 @@ class MaytinhController extends Controller
     public function edit($id)
     {
         $maytinh = $this->maytinh->find($id);
-        $selectgiaovien = $this->giaovien::all();
-        $selectlophoc = $this->lophoc::all();
+
         $selectphongmay = $this->phongmay::all();
-        return (view('Admin.maytinh.edit', compact('selectgiaovien', 'selectphongmay', 'selectlophoc', 'maytinh')));
+        return (view('Admin.maytinh.edit', compact('selectphongmay', 'maytinh')));
     }
 
     public function update($id, Request $request)
     {
 
-        $request->validate([
-            'ngayhoc' => 'before:tomorrow'
-        ]);
+
         $dataupdates = [
-            'ma_phongmay' => $request->ma_phongmay,
-            'ma_lophoc' => $request->ma_lophoc,
-            'ma_giaovien' => $request->ma_giaovien,
             'tenmaytinh' => $request->tenmaytinh,
-            'ngayhoc' => $request->ngayhoc,
-            'ghi_chu' => $request->ghichu
+            'mota' => $request->mota,
+            'ram' => $request->ram,
+            'cpu' => $request->cpu,
+            'ocung' => $request->ocung,
+            'ma_phongmay' => $request->ma_phongmay
         ];
+
         $this->maytinh->find($id)->update($dataupdates);
         return redirect()->route('maytinh.index');
     }

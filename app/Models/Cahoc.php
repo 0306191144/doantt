@@ -22,10 +22,7 @@ class Cahoc extends Model
         'ngayhoc',
         'ghi_chu'
     ];
-    protected $casts = [
-        'ngayhoc' => 'datetime:d/m/Y',
 
-    ];
     public function giaovien()
     {
         return $this->belongsTo(Giaovien::class, foreignKey: 'ma_giaovien');

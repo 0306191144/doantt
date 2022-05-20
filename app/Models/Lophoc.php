@@ -19,4 +19,8 @@ class Lophoc extends Model
     {
         return $this->hasMany(Cahoc::class, 'id');
     }
+    public function nhom()
+    {
+        return $this->belongsTo(Nhomkiemke::class, foreignKey: 'manhom');
+    }
 }

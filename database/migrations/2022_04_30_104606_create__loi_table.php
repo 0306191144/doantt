@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('loi', function (Blueprint $table) {
             $table->id();
-            $table->integer('ma_may');
+            $table->integer('ma_maytinh');
             $table->integer('macatruockhiloi')->nullable();
             $table->string('dientaloi')->nullable();
+            $table->date('ngayphathienloi')->nullable();
             $table->boolean('trang_thai')->default(true);
             $table->timestamps();
             $table->softDeletes();

@@ -63,6 +63,7 @@
    
   <div class="form-group" >
     <label >Ngày học</label>
+ 
     <input type="date" name='ngayhoc' class="form-control" >
 </div>
 @error('ngayhoc')

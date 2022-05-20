@@ -11,26 +11,74 @@
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    @include('partals.content_header',['name'=>'Phòng Máy', 'key'=>'sửa'])
+    @include('partals.content_header',['name'=>'Máy tính', 'key'=>'sửa'])
     <!-- /.content-header -->
 
     <div class="content">
       <div class="container-fluid">
         <div class="row">
          <div class="col-6">
-   <form action="{{route('Phongmay.update',['id'=>$phongmay->id])}}" method="Post" enctype="multipart/form-data">
+   <form action="{{route('Maytinh.update',['id'=>$maytinh->id])}}" method="Post" enctype="multipart/form-data">
     @csrf
-          <div class="form-group">
-             <label >Tên phòng máy</label>
-              <input type="text" class="form-control @error('tenphongmay') is-invalid @enderror" 
-              value="{{$phongmay->tenphongmay}}"
-               name ='tenphongmay'
-               placeholder=" nhập tên phòng máy">
-          </div>
-         @error('tenphongmay')
-            <div class=" alert alert-danger">{{$message}}</div>
-          @enderror
-          
+    <div class="form-group">
+      <label >Tên tên máy tính</label>
+       <input type="text" class="form-control @error('tenmaytinh') is-invalid @enderror" value="{{old('tenMaytinh')}}"
+        name ='tenmaytinh'
+        placeholder=" nhập tên phòng máy">
+   </div>
+  @error('tenmaytinh')
+     <div class=" alert alert-danger">{{$message}}</div>
+   @enderror
+
+  <div class="form-group">
+      <label >CPU</label>
+       <input type="text" class="form-control @error('cpu') is-invalid @enderror" value="{{old('cpu')}}"
+        name ='cpu'
+        placeholder=" nhập loại cpu">
+   </div>
+  @error('cpu')
+     <div class=" alert alert-danger">{{$message}}</div>
+   @enderror
+   
+   <div class="form-group">
+     <label >Ổ cứng</label>
+      <input type="text" class="form-control @error('ocung') is-invalid @enderror" value="{{old('ocung')}}"
+       name ='ocung' value="{{$maytinh->ocung}}"
+       placeholder=" nhập ổ cứng">
+  </div>
+ @error('ocung')
+    <div class=" alert alert-danger">{{$message}}</div>
+  @enderror
+  
+  
+  <div class="form-group">
+   <label >Ram</label>
+    <input type="text" class="form-control @error('ram') is-invalid @enderror" value="{{old('ram')}}"
+     name ='ram' value="{{$maytinh->ram}}"
+     placeholder=" nhập ram ">
+</div>
+@error('ram')
+  <div class=" alert alert-danger">{{$message}}</div>
+@enderror
+
+<div class="form-group">
+ <label >Mô Tả</label>
+  <input type="text" class="form-control @error('mota') is-invalid @enderror" value="{{old('mota')}}"
+   name ='mota' value="{{$maytinh->mota}}"
+   placeholder="viết mô tả ">
+</div>
+@error('mota')
+<div class=" alert alert-danger">{{$message}}</div>
+@enderror
+
+<div class="form-group" >
+<label > Máy tính</label>
+<select class="form-control" name='ma_phongmay'>
+@foreach ($selectphongmay as $value)
+ <option value ={{$value['id']}} > {{$value['tenphongmay'] }}</option>
+ @endforeach
+</select>
+</div>
        <button type="submit" class="btn btn-primary">Submit</button>
        
     </form>

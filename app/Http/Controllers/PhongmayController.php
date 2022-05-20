@@ -14,7 +14,6 @@ class PhongmayController extends Controller
     function index()
     {
         $phongmays  = $this->phongmay->latest()->paginate(5);
-
         return view("Admin.Phongmay.Index", compact('phongmays'));
     }
     public function create()

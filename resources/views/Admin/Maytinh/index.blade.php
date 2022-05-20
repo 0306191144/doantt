@@ -10,7 +10,7 @@
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
     <!-- Content Header (Page header) -->   
-    @include('partals.content_header',['name'=>'Phòng máy', 'key'=>'List'])
+    @include('partals.content_header',['name'=>'Máy Tính', 'key'=>'List'])
 
     <!-- /.content-header -->
 

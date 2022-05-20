@@ -9,6 +9,8 @@ use App\Http\Controllers\LophocController;
 use App\Http\Controllers\NhomkiemkeController;
 use App\Http\Controllers\CahocController;
 use App\Http\Controllers\MaytinhController;
+use App\Http\Controllers\LoiController;
+
 
 
 
@@ -98,5 +100,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [MaytinhController::class, 'edit'])->name('Maytinh.edit');
         Route::post('/update/{id}', [MaytinhController::class, 'update'])->name('Maytinh.update');
         Route::get('/delete/{id}', [MaytinhController::class, 'delete'])->name('Maytinh.delete');
+    });
+    Route::prefix('loi')->group(function () {
+        Route::get('/create', [LoiController::class, 'create'])->name('Loi.create');
+        Route::post('/store', [LoiController::class, 'store'])->name('Loi.store');
+        Route::get('/index', [LoiController::class, 'index'])->name('Loi.index');
+        Route::get('/edit/{id}', [LoiController::class, 'edit'])->name('Loi.edit');
+        Route::post('/update/{id}', [LoiController::class, 'update'])->name('Loi.update');
+        Route::get('/delete/{id}', [LoiController::class, 'delete'])->name('Loi.delete');
     });
 });
