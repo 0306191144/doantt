@@ -11,7 +11,7 @@
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    @include('partals.content_header',['name'=>'Loi', 'key'=>'ADD'])
+    @include('partals.content_header',['name'=>'LỗiS', 'key'=>'thêm'])
     <!-- /.content-header -->
 
     <!-- Main content -->

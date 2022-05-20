@@ -72,7 +72,7 @@ class MaytinhController extends Controller
         ];
 
         $this->maytinh->find($id)->update($dataupdates);
-        return redirect()->route('maytinh.index');
+        return redirect()->route('Maytinh.index');
     }
     public function delete($id)
     {

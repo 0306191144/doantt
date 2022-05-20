@@ -49,19 +49,13 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-         
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-              Thống kê
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
+              
+               @if(session('alert'))
+               <section  class='alert alert-danger' >{{session('alert')}}</section>
+               @endif
           <li class="nav-item">
             <a href="{{route('Maytinh.index')}}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-computer"></i>
               <p>
              Máy Tính
                 <span class="right badge badge-danger">New</span>
@@ -79,7 +73,7 @@
           </li>
            <li class="nav-item">
             <a href="{{route('Lophoc.index')}}" class="nav-link">
-                  <i class="nav-icon fas fa-user"></i>
+                  <i class="nav-icon fas fa-building"></i>
               <p>
                 Lớp Học
               </p>
@@ -88,48 +82,50 @@
 
           <li class="nav-item">
             <a href="{{route('Nhomkiemke.index')}}" class="nav-link">
-                  <i class="nav-icon fas fa-user"></i>
+              <i class="nav-icon 	fas fa-sitemap"></i>
               <p>
                Nhóm
               </p>
             </a>
           </li> 
 
-          <li class="nav-item">
-            <a href="{{route('Loi.index')}}" class="nav-link">
-                  <i class="nav-icon fas fa-user"></i>
-              <p>
-               Lỗi
-              </p>
-            </a>
-          </li> 
+        
           <li class="nav-item">
             <a href="{{route('Phongmay.index')}}" class="nav-link">
-                  <i class="nav-icon fas fa-user"></i>
+              <i class="nav-icon fa-solid fa-house-chimney"></i>
               <p>
                Phòng máy
               </p>
             </a>
           </li> 
 
-          <li class="nav-item">
-            <a href="{{route('Cahoc.index')}}" class="nav-link">
-                  <i class="nav-icon fas fa-user"></i>
-              <p>
-               Ca Học
-              </p>
-            </a>
-          </li> 
+          
            
           <li class="nav-item">
             <a href="{{route('Giaovien.index')}}" class="nav-link">
-                  <i class="nav-icon fas fa-user"></i>
+              <i class="nav-icon fas fa-chalkboard-teacher"></i>
               <p>
                Giáo viên
               </p>
             </a>
           </li> 
 
+          <li class="nav-item">
+            <a href="{{route('Cahoc.index')}}" class="nav-link">
+              <i class="nav-icon far fa-window-restore"></i>
+              <p>
+               Ca Học
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('Loi.index')}}" class="nav-link">
+                  <i class="nav-icon 	fas fa-bug"></i>
+              <p>
+               Lỗi
+              </p>
+            </a>
+          </li> 
 
           <li class="nav-item">
             <a href="{{route('logout')}}" class="nav-link">
@@ -140,6 +136,7 @@
             </a>
           </li>
 
+          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

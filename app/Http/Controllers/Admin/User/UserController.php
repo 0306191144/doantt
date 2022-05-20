@@ -56,7 +56,7 @@ class UserController extends Controller
             'ten_user' => $request->name,
             'sodienthoai' => $request->phone,
             'diachi' => $request->adress,
-            'password' => $request->password,
+            'password' => bcrypt($request->password),
             'gioitinh' => $request->gioitinh,
             'email' => $request->email,
             'isadmin' => $request->true,

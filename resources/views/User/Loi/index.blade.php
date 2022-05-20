@@ -10,7 +10,7 @@
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
     <!-- Content Header (Page header) -->   
-    @include('partals.content_header',['name'=>'User', 'key'=>'List'])
+    @include('partals.content_header',['name'=>'Lỗi', 'key'=>'danh sách'])
 
     <!-- /.content-header -->
 

@@ -22,8 +22,8 @@
     @csrf
     <div class="form-group">
       <label >Tên tên máy tính</label>
-       <input type="text" class="form-control @error('tenmaytinh') is-invalid @enderror" value="{{old('tenMaytinh')}}"
-        name ='tenmaytinh'
+       <input type="text" class="form-control"
+        name ='tenmaytinh' value="{{$maytinh->tenmaytinh}}"
         placeholder=" nhập tên phòng máy">
    </div>
   @error('tenmaytinh')
@@ -32,8 +32,8 @@
 
   <div class="form-group">
       <label >CPU</label>
-       <input type="text" class="form-control @error('cpu') is-invalid @enderror" value="{{old('cpu')}}"
-        name ='cpu'
+       <input type="text" class="form-control"
+        name ='cpu' value="{{$maytinh->cpu}}"
         placeholder=" nhập loại cpu">
    </div>
   @error('cpu')
@@ -42,7 +42,7 @@
    
    <div class="form-group">
      <label >Ổ cứng</label>
-      <input type="text" class="form-control @error('ocung') is-invalid @enderror" value="{{old('ocung')}}"
+      <input type="text" class="form-control"
        name ='ocung' value="{{$maytinh->ocung}}"
        placeholder=" nhập ổ cứng">
   </div>
@@ -53,7 +53,7 @@
   
   <div class="form-group">
    <label >Ram</label>
-    <input type="text" class="form-control @error('ram') is-invalid @enderror" value="{{old('ram')}}"
+    <input type="text" class="form-control"
      name ='ram' value="{{$maytinh->ram}}"
      placeholder=" nhập ram ">
 </div>
@@ -63,7 +63,7 @@
 
 <div class="form-group">
  <label >Mô Tả</label>
-  <input type="text" class="form-control @error('mota') is-invalid @enderror" value="{{old('mota')}}"
+  <input type="text" class="form-control"
    name ='mota' value="{{$maytinh->mota}}"
    placeholder="viết mô tả ">
 </div>

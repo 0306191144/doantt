@@ -11,9 +11,8 @@
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    @include('partals.content_header',['name'=>'PHÒNG MÁY', 'key'=>'ADD'])
+    @include('partals.content_header',['name'=>'PHÒNG MÁY', 'key'=>'Thêm']);
     <!-- /.content-header -->
-
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
